@@ -5,12 +5,16 @@
         "android": "2.205",
         "mac": "2.200"
     },
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"id": "xytriza.menu_modifier",
 	"name": "Menu Modifier",
 	"developer": "Xytriza",
 	"description": "",
     "repository": "https://github.com/Xytriza/cleaner-menus",
+    "issues": {
+        "info": "Submit problems to the GitHub or @xytriza on Discord.",
+        "url": "https://github.com/Xytriza/cleaner-menus/issues"
+    },
     "settings": {
         "creatorlayer_enabled": {
             "name": "Modify Creator Layer",
@@ -66,11 +70,6 @@
     "incompatibilities": [
         {
             "id": "muhammadgames.bettermenu",
-            "version": "*",
-            "importance": "breaking"
-        },
-        {
-            "id": "minemaker0430.gddp_integration",
             "version": "*",
             "importance": "breaking"
         },
