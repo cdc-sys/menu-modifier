@@ -5,7 +5,7 @@
         "android": "2.205",
         "mac": "2.200"
     },
-	"version": "v1.0.2",
+	"version": "v1.0.3",
 	"id": "xytriza.menu_modifier",
 	"name": "Menu Modifier",
 	"developer": "Xytriza",
@@ -75,6 +75,11 @@
         },
         {
             "id": "capeling.goodbye_unnecessary_buttons",
+            "version": "*",
+            "importance": "breaking"
+        },
+        {
+            "id": "blackholemx.nomoregames",
             "version": "*",
             "importance": "breaking"
         },

@@ -14,14 +14,14 @@ class $modify(MenuLayer) {
         auto playerUsername = this->getChildByID("player-username");
         auto rightSideMenu = this->getChildByID("right-side-menu");
 
-        auto robtopLogo = socialMediaMenu->getChildByID("robtop-logo-button"); 
-        auto facebookButton = socialMediaMenu->getChildByID("facebook-button");
-        auto twitterButton = socialMediaMenu->getChildByID("twitter-button");
-        auto youtubeButton = socialMediaMenu->getChildByID("youtube-button");
-        auto twitchButton = socialMediaMenu->getChildByID("twitch-button");
-        auto discordButton = socialMediaMenu->getChildByID("discord-button");
-        auto moreGamesButton = moreGamesMenu->getChildByID("more-games-button");
-        auto dailyChestButton = rightSideMenu->getChildByID("daily-chest-button");
+        auto robtopLogo = socialMediaMenu ? socialMediaMenu->getChildByID("robtop-logo-button") : nullptr;
+        auto facebookButton = socialMediaMenu ? socialMediaMenu->getChildByID("facebook-button") : nullptr;
+        auto twitterButton = socialMediaMenu ? socialMediaMenu->getChildByID("twitter-button") : nullptr;
+        auto youtubeButton = socialMediaMenu ? socialMediaMenu->getChildByID("youtube-button") : nullptr;
+        auto twitchButton = socialMediaMenu ? socialMediaMenu->getChildByID("twitch-button") : nullptr;
+        auto discordButton = socialMediaMenu ? socialMediaMenu->getChildByID("discord-button") : nullptr;
+        auto moreGamesButton = moreGamesMenu ? moreGamesMenu->getChildByID("more-games-button") : nullptr;
+        auto dailyChestButton = rightSideMenu ? rightSideMenu->getChildByID("daily-chest-button") : nullptr;
 
         bool hideRobtopLogo = Mod::get()->getSettingValue<bool>("main_menu_robtoplogo");
         bool hideSocials = Mod::get()->getSettingValue<bool>("main_menu_socials");
@@ -29,39 +29,35 @@ class $modify(MenuLayer) {
         bool moveProfile = Mod::get()->getSettingValue<bool>("main_menu_move_profile");
         bool moveDaily = Mod::get()->getSettingValue<bool>("main_menu_move_daily");
 
-        if (hideRobtopLogo) {
+        if (hideRobtopLogo && robtopLogo) {
             robtopLogo->setVisible(false);
-            if (hideSocials) {
-                facebookButton->setVisible(false);
-                twitterButton->setVisible(false);
-                youtubeButton->setVisible(false);
-                twitchButton->setVisible(false);
-                discordButton->setVisible(false);
-            } else {
-                socialMediaMenu->setScale(0.9);
-                facebookButton->setPosition(12.6, 12.2);
-                twitterButton->setPosition(41.5, 12.2);
-                youtubeButton->setPosition(70.4, 12.2);
-                twitchButton->setPosition(99.3, 12.2);
-                discordButton->setPosition(128.1, 12.2);
-            }
-        } else if (hideSocials) {
-            facebookButton->setVisible(false);
-            twitterButton->setVisible(false);
-            youtubeButton->setVisible(false);
-            twitchButton->setVisible(false);
-            discordButton->setVisible(false);
+        }
+        
+        if (hideSocials) {
+            if (facebookButton) facebookButton->setVisible(false);
+            if (twitterButton) twitterButton->setVisible(false);
+            if (youtubeButton) youtubeButton->setVisible(false);
+            if (twitchButton) twitchButton->setVisible(false);
+            if (discordButton) discordButton->setVisible(false);
+        } else if (hideRobtopLogo) {
+            if (socialMediaMenu) socialMediaMenu->setScale(0.9);
+            if (facebookButton) facebookButton->setPosition(12.6, 12.2);
+            if (twitterButton) twitterButton->setPosition(41.5, 12.2);
+            if (youtubeButton) youtubeButton->setPosition(70.4, 12.2);
+            if (twitchButton) twitchButton->setPosition(99.3, 12.2);
+            if (discordButton) discordButton->setPosition(128.1, 12.2);
         }
 
-        if (hideMoreGames) {
+        if (hideMoreGames && moreGamesButton) {
             moreGamesButton->setVisible(false);
         }
 
         if (moveProfile && (hideRobtopLogo && hideSocials)) {
-            profileMenu->setPosition(91, 85);
-            playerUsername->setPosition(47, 121);
+            if (profileMenu) profileMenu->setPosition(91, 85);
+            if (playerUsername) playerUsername->setPosition(47, 121);
         }
-        if (moveDaily) {
+
+        if (moveDaily && dailyChestButton) {
             dailyChestButton->setPosition(24.25, 0);
         }
 
