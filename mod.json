@@ -10,10 +10,10 @@
 	"name": "Menu Modifier",
 	"developer": "Xytriza",
 	"description": "",
-    "repository": "https://github.com/Xytriza/cleaner-menus",
+    "repository": "https://github.com/Xytriza/menu-modifier",
     "issues": {
         "info": "Submit problems to the GitHub or @xytriza on Discord.",
-        "url": "https://github.com/Xytriza/cleaner-menus/issues"
+        "url": "https://github.com/Xytriza/menu-modifier/issues"
     },
     "settings": {
         "creatorlayer_enabled": {
